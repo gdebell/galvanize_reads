@@ -12,14 +12,13 @@
 
       <form class="form-horizontal" action="/books" method="post">
 
-
         <div class="form-group">
           <label for="title">Title</label>
           <input class="form-control" type="text" name="title">
         </div>
 
         <div class="form-group">
-          <label class="col-sm-2 control-label" for="genre">Genre</label>
+          <label for="genre">Genre</label>
               <select class="form-control" name="genre" required>
                 {% for genre in genres %}
                 <option>{{genre}}</option>
@@ -27,21 +26,24 @@
               </select>
         </div>
 
-
+        <div class="form-group">
+          <label for="cover_img_url">Cover Image URL</label>
+          <input class="form-control" type="text" name="book_cover_url">
+        </div>
 
         <div class="form-group">
-          <label for-"cover_img_url">Cover Image URL</label>
-          <input class="form-control" type="text" name="cover_img_url">
+          <label for="description">Description</label>
+            <textarea class="form-control" rows="5" input type="text" name="description"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="authors">Authors</label>
+          <input class="form-control" type="text" name="authors">
         </div>
 
 
-        <textarea class="form-control" rows="5" input type="text" name ="description"></textarea>
+        <button class="form-group btn btn-submit btn-lg center-block" type="submit" value="submit">Add Book</button>
 
-
-
-        <div class="form-group">
-          <input class="btn btn-submit btn-lg center-block" type="submit" value="Submit">
-        </div>
 
       </form>
     </div>
