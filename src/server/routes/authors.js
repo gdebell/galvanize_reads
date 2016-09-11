@@ -7,6 +7,12 @@ const knex = require('../db/knex');
 
 function knexAuthors() {return knex('writes'); }
 
+//inner on all getAuthors
+
+//post, insert data into one table  and
+//then a promise (.then) to insert into another //table
+
+// --------WORKING GET -----------//
 router.get('/authors', (req, res, next) => {
   knexAuthors().select()
   .then(getAuthors => {
@@ -19,26 +25,6 @@ router.get('/authors', (req, res, next) => {
     return next (err);
   });
 });
-
-
-SELECT DISTINCT ON (students.id) first_name, last_name, students.id
-FROM students INNER JOIN classes_students
-ON students.id = classes_students.student_id ORDER BY first_name ASC;
-
-// ** WORKING GET ROUTE ** //
-// router.get('/authors', (req, res, next) => {
-//   knexAuthors().select()
-//   .then(getAuthors => {
-//     res.render('authors/authors', {
-//       title: 'All Authors',
-//       writes: getAuthors
-//     });
-//   })
-//   .catch((err) => {
-//     return next (err);
-//   });
-// });
-
 
 router.get('/authors/:id', (req, res, next) => {
   knexAuthors().where({id: req.params.id})
@@ -56,7 +42,9 @@ router.get('/authors/:id', (req, res, next) => {
 router.get('/new', (req, res, next) => {
   res.render('authors/new', {title: 'New Author'});
 });
-
+// knex('writes')
+// .join('joins', 'writes.id', 'author_id')
+// .select('*')
 router.post('/', (req, res, next) => {
   let newAuthor = {
     name: req.body.name,
