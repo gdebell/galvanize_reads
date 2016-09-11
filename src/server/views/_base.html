@@ -18,12 +18,17 @@
     {% block css %}{% endblock %}
     </head>
     <body>
-      <div class="container">
-        <div class="col-lg-12">
-          <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQG5LadWTZcJM4hfOrAxvIbCSXxPy1Gb4EOMWkWlRAwQPLDQkxH" alt="book" height="42" width="42">
+      <div class="container col-lg-12">
+
+        <div class="rowOne col-lg-12">
+          <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQG5LadWTZcJM4hfOrAxvIbCSXxPy1Gb4EOMWkWlRAwQPLDQkxH" alt="book" height="30" width="30">
           <h1>Galvanize Reads</h1>
         </div>
-      </div>
+        <div class = "rowTwo col-lg-12">
+            <a href="/books/books"><h4>GO TO BOOKS</h4></a>
+            <a href="/../authors/authors"><h4>GO TO AUTHORS</h4></a>
+        </div>
+
       {% block content %}
       {% endblock %}
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>

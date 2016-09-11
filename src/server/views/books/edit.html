@@ -4,17 +4,23 @@
 
 {% block content %}
 
-
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
 
 
-      <form class="form-horizontal" action="/books" method="post">
+      <form class="form-horizontal" action="/books/{{read.id}}/edit" method="POST">
+
+
+        <div class="form-group">
+          <label for="id">Book Id</label>
+          <input class="form-control" type="number" name="id" value="{{read.id}}" readonly=""
+        </div>
+
 
         <div class="form-group">
           <label for="title">Title</label>
-          <input class="form-control" type="text" name="title">
+          <input class="form-control" type="text" name="title" value="{{read.title}}"
         </div>
 
         <div class="form-group">
@@ -27,23 +33,27 @@
             <input class="form-control" type="text" name="author" value="{{read.author}}"
         </div>
 
+
         <div class="form-group">
           <label for="cover_img_url">Cover Image URL</label>
-          <input class="form-control" type="text" name="book_cover_url">
+          <input class="form-control" type="text" name="book_cover_url" value="{{read.book_cover_url}}">
         </div>
 
         <div class="form-group">
           <label for="description">Description</label>
-            <textarea class="form-control" rows="5" input type="text" name="description"></textarea>
+            <textarea class="form-control" rows="5" type="text" name="description">{{read.description}}</textarea>
         </div>
 
 
-        <button class="form-group btn btn-submit btn-lg center-block" type="submit" value="submit">Add Book</button>
-
+        <button class="form-group btn btn-submit btn-lg center-block" type="submit" value="submit">Up-date Book</button>
 
       </form>
     </div>
   </div>
 </div>
+
+
+
+
 
 {% endblock %}

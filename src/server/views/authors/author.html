@@ -1,0 +1,35 @@
+{% extends "_base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<table class="table table-responsive table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>bibliography</th>
+          <th>Portrait URL</th>
+          <th>Books</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for write in writes -%}
+        <tr>
+          <td>{{ write.id }}</td>
+          <td>{{ write.name }}</td>
+          <td>{{ write.bibliography }}</td>
+          <td>{{ write.portrait_url}}</td>
+          <td>{{ write.books_name_and_id}}</td>
+
+
+          <td><button type="button" class="btn btn-info edit-btn" data-id="{{ write.id }}">EDIT</button></td>
+
+          <td><button type="button" class="btn btn-danger delete-book-btn" data-id="{{ write.id }}">DELETE</button></td>
+
+        </tr>
+      {%- endfor %}
+      </tbody>
+    </table>
+
+{% endblock %}

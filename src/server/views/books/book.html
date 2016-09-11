@@ -1,0 +1,37 @@
+{% extends "_base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<table class="table table-responsive table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Genre</th>
+          <th>Author</th>
+          <th>Book Cover URL</th>
+          <th>Description</th>
+          <th>Book Cover</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for read in reads -%}
+        <tr>
+          <td>{{ read.id }}</td>
+          <td>{{ read.title }}</td>
+          <td>{{ read.genre }}</td>
+          <td>{{ read.author}}</td>
+          <td>{{ read.book_cover_url }}</td>
+          <td>{{ read.description }}</td>
+          <td>src="{{ read.book_cover_url }}"/><td>
+          <td><button type="button" class="btn btn-info edit-btn" data-id="{{read.id}}">EDIT</button></td>
+
+          <td><button type="button" class="btn btn-danger delete-book-btn" data-id="{{read.id}}">DELETE</button></td>
+
+        </tr>
+      {%- endfor %}
+      </tbody>
+    </table>
+
+{% endblock %}

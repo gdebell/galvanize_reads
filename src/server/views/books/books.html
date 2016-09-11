@@ -1,0 +1,43 @@
+{% extends "_base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<table class="table table-responsive table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Genre</th>
+          <th>Author</th>
+          <th>Book Cover URL</th>
+          <th>Description</th>
+          <th>Book Cover</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for read in reads -%}
+        <tr>
+          <td>{{ read.id }}</td>
+          <td>{{ read.title }}</td>
+          <td>{{ read.genre }}</td>
+          <td>{{ read.author }}</td>
+          <td>{{ read.book_cover_url }}</td>
+          <td>{{ read.description }}</td>
+          <td>src="{{ read.book_cover_url }}"/><td>
+          <td><a href="/books/books/{{read.id}}/edit" class="btn btn-info edit-btn" data-id="{{read.id}}" data-title="{{read.title}}" data-genre="{{read.genre}}"
+          data-author=
+          "{{read.author}}" data-bookCoverUrl="{{read.book_cover_url}}" data-description="{{read.description}}">EDIT</a></td>
+
+          <td><a href="/books/books/{{read.id}}/delete" class="btn btn-danger remove-btn" data-id="{{read.id}}">REMOVE</a></td>
+    <!-- <a href="/people/new" class="btn btn-success btn-md">Add Person</a> -->
+
+        </tr>
+      {%- endfor %}
+      </tbody>
+    </table>
+    <a href="/books/new" class="btn btn-success add-btn">ADD NEW BOOK</a></td>
+
+{% endblock %}
